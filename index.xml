@@ -92,5 +92,22 @@
       <description></description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://vincentliu3.github.io/courses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://vincentliu3.github.io/courses/</guid>
+      <description>&lt;p&gt;Awesome courses on RL and statistics with online access:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rltheory.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CMPUT 653 RL theory&lt;/a&gt; by Csaba Szepesvári (with lecture notes &amp;amp; videos)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sites.ualberta.ca/~kashlak/data/stat571.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;STAT 571 Probability and Measure&lt;/a&gt; by Adam B Kashlak (with lecture notes &amp;amp; videos)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://nanjiang.cs.illinois.edu/cs598/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Statistical RL&lt;/a&gt; by Nan Jiang (with lecture notes &amp;amp; videos)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.di.ens.fr/~fbach/learning_theory_class/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Learning Theory from First Principles&lt;/a&gt; by Francis Bach (with lecture notes)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.stat.cmu.edu/~ryantibs/statml/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Statistical Machine Learning&lt;/a&gt; by Ryan Tibshirani  and Larry Wasserman (with lecture notes &amp;amp; videos)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- - [Theoretical Statistics](https://www.stat.berkeley.edu/~bartlett/courses/2013spring-stat210b/) (with lecture notes that follow Asymptotic Statistics) --&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
