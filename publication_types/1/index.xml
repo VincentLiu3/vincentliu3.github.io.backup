@@ -7,7 +7,7 @@
     <description>1</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://vincentliu3.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <url>https://vincentliu3.github.io/media/icon_hub270b0482d0f41a4f7574a951b7d3e81_18769_512x512_fill_lanczos_center_3.png</url>
       <title>1</title>
       <link>https://vincentliu3.github.io/publication_types/1/</link>
     </image>
@@ -29,9 +29,17 @@
     </item>
     
     <item>
+      <title>The utility of sparse representations for control in reinforcement learning</title>
+      <link>https://vincentliu3.github.io/publication/liu-2019-utility/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://vincentliu3.github.io/publication/liu-2019-utility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>A Value Function Basis for Nexting and Multi-step Prediction</title>
       <link>https://vincentliu3.github.io/publication/jacobsen-2019-value/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
       <guid>https://vincentliu3.github.io/publication/jacobsen-2019-value/</guid>
       <description></description>
     </item>
@@ -39,16 +47,8 @@
     <item>
       <title>Incrementally Learning Functions of the Return</title>
       <link>https://vincentliu3.github.io/publication/bennett-2019-incrementally/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
       <guid>https://vincentliu3.github.io/publication/bennett-2019-incrementally/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>The utility of sparse representations for control in reinforcement learning</title>
-      <link>https://vincentliu3.github.io/publication/liu-2019-utility/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>https://vincentliu3.github.io/publication/liu-2019-utility/</guid>
       <description></description>
     </item>
     

@@ -5,26 +5,26 @@
     <link>https://vincentliu3.github.io/publication/</link>
       <atom:link href="https://vincentliu3.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 02 Jan 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://vincentliu3.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <url>https://vincentliu3.github.io/media/icon_hub270b0482d0f41a4f7574a951b7d3e81_18769_512x512_fill_lanczos_center_3.png</url>
       <title>Publications</title>
       <link>https://vincentliu3.github.io/publication/</link>
     </image>
+    
+    <item>
+      <title>Exploiting action impact regularity and exogenous state variables for offline reinforcement learning</title>
+      <link>https://vincentliu3.github.io/publication/liu-2023-exploiting/</link>
+      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://vincentliu3.github.io/publication/liu-2023-exploiting/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Asymptotically Unbiased Off-Policy Policy Evaluation when Reusing Old Data in Nonstationary Environments</title>
       <link>https://vincentliu3.github.io/publication/liu-2023-asymptotically/</link>
       <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://vincentliu3.github.io/publication/liu-2023-asymptotically/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Exploiting action impact regularity and exogenous state variables for offline reinforcement learning</title>
-      <link>https://vincentliu3.github.io/publication/liu-2023-exploiting/</link>
-      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://vincentliu3.github.io/publication/liu-2023-exploiting/</guid>
       <description></description>
     </item>
     
@@ -53,10 +53,26 @@
     </item>
     
     <item>
+      <title>The utility of sparse representations for control in reinforcement learning</title>
+      <link>https://vincentliu3.github.io/publication/liu-2019-utility/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://vincentliu3.github.io/publication/liu-2019-utility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>A Value Function Basis for Nexting and Multi-step Prediction</title>
       <link>https://vincentliu3.github.io/publication/jacobsen-2019-value/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
       <guid>https://vincentliu3.github.io/publication/jacobsen-2019-value/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Incrementally Learning Functions of the Return</title>
+      <link>https://vincentliu3.github.io/publication/bennett-2019-incrementally/</link>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://vincentliu3.github.io/publication/bennett-2019-incrementally/</guid>
       <description></description>
     </item>
     
@@ -65,22 +81,6 @@
       <link>https://vincentliu3.github.io/publication/chen-2020-attribute/</link>
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       <guid>https://vincentliu3.github.io/publication/chen-2020-attribute/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Incrementally Learning Functions of the Return</title>
-      <link>https://vincentliu3.github.io/publication/bennett-2019-incrementally/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>https://vincentliu3.github.io/publication/bennett-2019-incrementally/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>The utility of sparse representations for control in reinforcement learning</title>
-      <link>https://vincentliu3.github.io/publication/liu-2019-utility/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>https://vincentliu3.github.io/publication/liu-2019-utility/</guid>
       <description></description>
     </item>
     

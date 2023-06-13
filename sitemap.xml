@@ -6,16 +6,8 @@
     <lastmod>2023-06-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://vincentliu3.github.io/publication_types/1/</loc>
-    <lastmod>2023-06-12T11:11:57-07:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>https://vincentliu3.github.io/publication_types/2/</loc>
     <lastmod>2023-06-12T11:11:57-07:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://vincentliu3.github.io/publication/liu-2023-asymptotically/</loc>
-    <lastmod>2023-06-12T11:11:55-07:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://vincentliu3.github.io/publication/liu-2023-exploiting/</loc>
@@ -30,6 +22,14 @@
     <lastmod>2023-06-12T11:11:57-07:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
+    <loc>https://vincentliu3.github.io/publication_types/1/</loc>
+    <lastmod>2023-06-12T11:11:57-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://vincentliu3.github.io/publication/liu-2023-asymptotically/</loc>
+    <lastmod>2023-06-12T11:11:55-07:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://vincentliu3.github.io/publication/wang-2022-investigating/</loc>
     <lastmod>2023-06-12T11:11:55-07:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -42,11 +42,11 @@
     <lastmod>2023-06-12T11:11:56-07:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://vincentliu3.github.io/publication/jacobsen-2019-value/</loc>
-    <lastmod>2023-06-12T11:11:57-07:00</lastmod>
+    <loc>https://vincentliu3.github.io/publication/liu-2019-utility/</loc>
+    <lastmod>2023-06-12T11:11:56-07:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://vincentliu3.github.io/publication/chen-2020-attribute/</loc>
+    <loc>https://vincentliu3.github.io/publication/jacobsen-2019-value/</loc>
     <lastmod>2023-06-12T11:11:57-07:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -54,8 +54,8 @@
     <lastmod>2023-06-12T11:11:57-07:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://vincentliu3.github.io/publication/liu-2019-utility/</loc>
-    <lastmod>2023-06-12T11:11:56-07:00</lastmod>
+    <loc>https://vincentliu3.github.io/publication/chen-2020-attribute/</loc>
+    <lastmod>2023-06-12T11:11:57-07:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://vincentliu3.github.io/admin/</loc>
