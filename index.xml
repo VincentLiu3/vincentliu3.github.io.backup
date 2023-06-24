@@ -13,9 +13,17 @@
     </image>
     
     <item>
+      <title>When is Offline Policy Selection Feasible for Reinforcement Learning?</title>
+      <link>https://vincentliu3.github.io/publication/liu-2023-when/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://vincentliu3.github.io/publication/liu-2023-when/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Exploiting action impact regularity and exogenous state variables for offline reinforcement learning</title>
       <link>https://vincentliu3.github.io/publication/liu-2023-exploiting/</link>
-      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 03 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://vincentliu3.github.io/publication/liu-2023-exploiting/</guid>
       <description></description>
     </item>
@@ -23,8 +31,16 @@
     <item>
       <title>Asymptotically Unbiased Off-Policy Policy Evaluation when Reusing Old Data in Nonstationary Environments</title>
       <link>https://vincentliu3.github.io/publication/liu-2023-asymptotically/</link>
-      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 02 Jan 2023 00:00:00 +0000</pubDate>
       <guid>https://vincentliu3.github.io/publication/liu-2023-asymptotically/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Measuring and Mitigating Interference in Reinforcement Learning</title>
+      <link>https://vincentliu3.github.io/publication/liu-2023-measuring/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://vincentliu3.github.io/publication/liu-2023-measuring/</guid>
       <description></description>
     </item>
     
