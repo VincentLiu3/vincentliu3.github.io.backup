@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks | Vincent Liu</title>
+    <link>https://vincentliu3.github.io/talks/</link>
+      <atom:link href="https://vincentliu3.github.io/talks/index.xml" rel="self" type="application/rss+xml" />
+    <description>Talks</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://vincentliu3.github.io/media/icon_hub270b0482d0f41a4f7574a951b7d3e81_18769_512x512_fill_lanczos_center_3.png</url>
+      <title>Talks</title>
+      <link>https://vincentliu3.github.io/talks/</link>
+    </image>
+    
+  </channel>
+</rss>

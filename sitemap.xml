@@ -2,8 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vincentliu3.github.io/talks/sampling_survey/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://vincentliu3.github.io/talks/ope_overview/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://vincentliu3.github.io/talks/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://vincentliu3.github.io/</loc>
     <lastmod>2023-06-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://vincentliu3.github.io/posts/resources/</loc>
+    <lastmod>2023-06-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://vincentliu3.github.io/posts/</loc>
+    <lastmod>2023-06-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://vincentliu3.github.io/publication_types/1/</loc>
@@ -69,13 +89,7 @@
     <loc>https://vincentliu3.github.io/admin/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://vincentliu3.github.io/resources/</loc>
-    <changefreq>weekly</changefreq>
-  </url><url>
     <loc>https://vincentliu3.github.io/categories/</loc>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://vincentliu3.github.io/post/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://vincentliu3.github.io/tags/</loc>
