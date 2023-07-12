@@ -12,5 +12,13 @@
       <link>https://vincentliu3.github.io/talks/</link>
     </image>
     
+    <item>
+      <title>When is Offline Policy Selection Feasible for Reinforcement Learning?</title>
+      <link>https://vincentliu3.github.io/talks/offline_policy_selection/_index/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      <guid>https://vincentliu3.github.io/talks/offline_policy_selection/_index/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
