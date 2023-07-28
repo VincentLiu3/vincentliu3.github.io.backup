@@ -43,13 +43,35 @@ $$
 \frac{\partial}{\partial\theta}\mathrm{E}_{x\sim p_\theta}\left[f(x)\right] = \mathrm{E}_{x\sim p_\theta}\left[f(x)\frac{\partial}{\partial\theta}\log p_\theta(x)\right].
 $$
 &lt;/p&gt;
+&lt;p&gt;The equation is derived as follows:
+
+
+
+$$\begin{align}
+\frac{\partial}{\partial\theta}\mathrm{E}_{x\sim p_\theta}\left[f(x)\right] 
+&amp;= \frac{\partial}{\partial\theta} \int f(x) p_\theta(x) dx \\
+&amp;= \int f(x) \frac{\partial}{\partial\theta} p_\theta(x) dx \\
+&amp;= \int f(x) p_\theta(x) \frac{\partial}{\partial\theta} \log p_\theta(x) dx \\
+&amp;= \mathrm{E}_{x\sim p_\theta}\left[f(x)\frac{\partial}{\partial\theta}\log p_\theta(x)\right].
+\end{align}$$
+
+The interchange of differentiation and integral is due to the &lt;a href=&#34;https://en.wikipedia.org/wiki/Leibniz_integral_rule&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Leibniz integral rule&lt;/a&gt; which requires 
+
+$p_\theta(x),\frac{\partial}{\partial\theta} p_\theta(x)$ are continuous in 
+
+$\theta$ and 
+
+$x$.
+However, when 
+
+$x$ is discrete, the equation still holds since we can interchange the differentiation and the sum.&lt;/p&gt;
 &lt;p&gt;The second one is the pathwise derivative estimator, or the reparameterization trick. Let 
 
-$x=g_\theta(z)$  be a deterministic and differentiable function of 
+$x=g_\theta(z)$ be a deterministic and function function of 
 
 $\theta$ and another random variable 
 
-$z$ that we can sample:&lt;/p&gt;
+$z$ that we can sample. Then,
 
 
 
@@ -57,6 +79,9 @@ $$
 \frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[f(g_\theta(z))\right] = \mathrm{E}_{z}\left[\frac{\partial}{\partial\theta}f(g_\theta(z))\right].
 $$
 
+Here we interchange the differentiation and the integral. Note that it requires 
+
+$f$ is differentiable.&lt;/p&gt;
 &lt;p&gt;Now let&amp;rsquo;s move back to reinforcement learning.&lt;/p&gt;
 &lt;p&gt;REINFORCE [2] uses the likelihood ratio estimator. Fix a state 
 
@@ -66,7 +91,11 @@ $\pi_\theta(a|s)$ is the parameterized distribution where
 
 $a$ is a random variable, 
 
-$Q$ is any function of the state-action pair. We want to estimate 
+$Q$ is a function of the state-action pair, e.g., the true q-function 
+
+$Q^\pi$ or our estimate 
+
+$\hat Q$ . We want to estimate 
 
 $\frac{\partial}{\partial\theta}\mathrm{E}_{a\sim \pi_\theta(\cdot|s)}[Q(s.a)]$:
 
@@ -124,6 +153,9 @@ $$\begin{align}
 [2] Simple statistical gradient-following algorithms for connectionist reinforcement learning&lt;br&gt;
 [3] Deterministic Policy Gradient Algorithms&lt;br&gt;
 [4] Soft Actor-Critic Algorithms and Applications&lt;/p&gt;
+&lt;p&gt;Other related work:&lt;br&gt;
+[5] Learning Continuous Control Policies by Stochastic Value Gradients&lt;br&gt;
+[6] Action-depedent Control Variates for Policy Optimization via Stein&amp;rsquo;s Identity&lt;/p&gt;
 </description>
     </item>
     
