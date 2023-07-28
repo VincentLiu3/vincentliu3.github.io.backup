@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Awesome courses and book on RL and statistical ML with online access | Vincent Liu</title>
+    <title>A list of courses and books on RL and ML with online access | Vincent Liu</title>
     <link>https://vincentliu3.github.io/posts/resources/</link>
       <atom:link href="https://vincentliu3.github.io/posts/resources/index.xml" rel="self" type="application/rss+xml" />
-    <description>Awesome courses and book on RL and statistical ML with online access</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 07 Jul 2023 17:25:14 -0700</lastBuildDate>
+    <description>A list of courses and books on RL and ML with online access</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 27 Jul 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://vincentliu3.github.io/media/icon_hub270b0482d0f41a4f7574a951b7d3e81_18769_512x512_fill_lanczos_center_3.png</url>
-      <title>Awesome courses and book on RL and statistical ML with online access</title>
+      <title>A list of courses and books on RL and ML with online access</title>
       <link>https://vincentliu3.github.io/posts/resources/</link>
     </image>
     
