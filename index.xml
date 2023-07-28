@@ -21,6 +21,143 @@
     </item>
     
     <item>
+      <title>Gradient Estimation for Policy Gradient Methods</title>
+      <link>https://vincentliu3.github.io/posts/gradient_estimation/</link>
+      <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://vincentliu3.github.io/posts/gradient_estimation/</guid>
+      <description>&lt;p&gt;This post is about gradient estimation for policy gradient methods.&lt;/p&gt;
+&lt;p&gt;Consider the problem of estimating the gradient of an expectation 
+
+$\frac{\partial}{\partial\theta}\mathrm{E}_{x\sim p_\theta}[f(x)]$ where 
+
+$f$ is a function, 
+
+$x$ is a random variable and 
+
+$p$ is a parameterized distribution.&lt;/p&gt;
+&lt;p&gt;There are two main ways to estimate the gradient (see a summary in [1]). The first one is the likelihood ratio estimator:
+
+
+
+$$
+\frac{\partial}{\partial\theta}\mathrm{E}_{x\sim p_\theta}\left[f(x)\right] = \mathrm{E}_{x\sim p_\theta}\left[f(x)\frac{\partial}{\partial\theta}\log p_\theta(x)\right].
+$$
+&lt;/p&gt;
+&lt;p&gt;The second one is the pathwise derivative estimator, or the reparameterization trick. Let 
+
+$x=g_\theta(z)$  be a deterministic and differentiable function of 
+
+$\theta$ and another random variable 
+
+$z$ that we can sample:&lt;/p&gt;
+
+
+
+$$
+\frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[f(g_\theta(z))\right] = \mathrm{E}_{z}\left[\frac{\partial}{\partial\theta}f(g_\theta(z))\right].
+$$
+
+&lt;p&gt;Now let&amp;rsquo;s move back to reinforcement learning.&lt;/p&gt;
+&lt;p&gt;REINFORCE [2] uses the likelihood ratio estimator. Fix a state 
+
+$s$, the policy 
+
+$\pi_\theta(a|s)$ is the parameterized distribution where 
+
+$a$ is a random variable, 
+
+$Q$ is any function of the state-action pair. We want to estimate 
+
+$\frac{\partial}{\partial\theta}\mathrm{E}_{a\sim \pi_\theta(\cdot|s)}[Q(s.a)]$:
+
+
+
+$$
+\frac{\partial}{\partial\theta}\mathrm{E}_{a\sim \pi_\theta(\cdot|s)}\left[Q(s,a)\right] = \mathrm{E}_{a\sim \pi_\theta(\cdot|s)}\left[Q(s,a)\frac{\partial}{\partial\theta}\log \pi_\theta(a|s)\right].
+$$
+&lt;/p&gt;
+&lt;p&gt;DPG [3] and SAC [4] use the reparameterization trick. Let 
+
+$g_\theta(z,s)$ be the output of the policy where 
+
+$z$ is a random variable:
+
+
+
+$$\begin{align} 
+\frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[Q(s,g_\theta(z,s))\right] 
+&amp;= \mathrm{E}_{z}\left[\frac{\partial}{\partial\theta}Q(s,g_\theta(z,s))\right]\\
+&amp;= \mathrm{E}_{z}\left[\frac{\partial}{\partial a}Q(s,a) |_{a=g_\theta(z,s)} \frac{\partial}{\partial \theta}g_\theta(z,s)\right]\\
+\end{align}$$
+
+The second equation follows from the &lt;a href=&#34;https://en.wikipedia.org/wiki/Chain_rule&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;chain rule&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;SAC has an additional term, but we can still estimate the gradient.
+
+
+
+$$\begin{align} 
+&amp;\frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[\alpha\log\pi_\theta(g_\theta(z,s)|s) + Q(s,g_\theta(z,s))\right] \\
+% &amp;=\frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[\alpha\log\pi_\theta(g_\theta(z,s)|s)\right] + \frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[ Q(s,g_\theta(z,s))\right] \\
+&amp;=\mathrm{E}_{z}\Big[\frac{\partial}{\partial\theta}\alpha\log\pi_\theta(a|s)|_{a=g_\theta(z,s)} \\
+&amp;\ \ \ \ + \frac{\partial}{\partial a} \alpha\log\pi_\theta(a|s)|_{a=g_\theta(z,s)}\frac{\partial}{\partial \theta}g_\theta(z,s) \\
+&amp;\ \ \ \ +\frac{\partial}{\partial a}Q(s,a) |_{a=g_\theta(z,s)} \frac{\partial}{\partial \theta}g_\theta(z,s)\Big] \\
+\end{align}$$
+&lt;/p&gt;
+&lt;p&gt;I provide some Pytorch examples with Gaussian policies below. The Pytorch implementation can be found &lt;a href=&#34;https://pytorch.org/docs/stable/distributions.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The likelihood ratio estimator:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;mean&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;policy_network&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;distributions&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Normal&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mean&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;action&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sample&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;log_prob&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;log_prob&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;q_value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;critic_network&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;detach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;loss&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;log_prob&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;q_value&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;loss&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;backward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The reparameterization trick:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;mean&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;policy_network&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;torch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;distributions&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Normal&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mean&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;action&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rsample&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;log_prob&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;log_prob&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;q_value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;critic_network&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# critic_network needs to be differentiable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;loss&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;q_value&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;loss&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;backward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;[1] Gradient Estimation Using Stochastic Computation Graphs&lt;br&gt;
+[2] Simple statistical gradient-following algorithms for connectionist reinforcement learning&lt;br&gt;
+[3] Deterministic Policy Gradient Algorithms&lt;br&gt;
+[4] Soft Actor-Critic Algorithms and Applications&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A list of courses and books on RL and ML with online access</title>
+      <link>https://vincentliu3.github.io/posts/resources/</link>
+      <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://vincentliu3.github.io/posts/resources/</guid>
+      <description>&lt;p&gt;Awesome courses on RL and ML with online access:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://rltheory.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CMPUT 653 RL theory&lt;/a&gt; by Csaba Szepesvári (with lecture notes &amp;amp; videos)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://nanjiang.cs.illinois.edu/cs598/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Statistical RL&lt;/a&gt; by Nan Jiang (with lecture notes &amp;amp; videos)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.stat.cmu.edu/~ryantibs/statml/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Statistical Machine Learning&lt;/a&gt; by Ryan Tibshirani  and Larry Wasserman (with lecture notes &amp;amp; videos)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coursera.org/specializations/reinforcement-learning&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Introduction to RL&lt;/a&gt; by Martha White and Adam White (Coursera)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- - [Theoretical Statistics](https://www.stat.berkeley.edu/~bartlett/courses/2013spring-stat210b/) (with lecture notes that follow Asymptotic Statistics) --&gt;
+&lt;p&gt;Awesome courses on statistics with online access:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sites.ualberta.ca/~kashlak/data/stat571.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;STAT 571 Probability and Measure&lt;/a&gt; by Adam B Kashlak (with lecture notes &amp;amp; &lt;a href=&#34;https://www.youtube.com/playlist?list=PL0vEWJI_pj7RZ51zecINlzWxpFv83r8RE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;videos&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.math.uci.edu/~rvershyn/teaching/hdp/hdp.html?fbclid=IwAR0mI88ZJuH2HXo9fvvvxnkWoujZvjRE-u6LAR_gTs1GHjdZN7EjISD0mbg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;High-Dimensional Probability&lt;/a&gt; by Roman Vershynin (with lecture notes &amp;amp; videos)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uncertaintyclass.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Uncertain: Modern Topics in Uncertainty Estimation&lt;/a&gt; by Aaron Roth (with lecture notes &amp;amp; videos)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Awesome books on RL and ML with online access:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://tor-lattimore.com/downloads/book/book.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bandit Algorithms&lt;/a&gt; by Tor Lattimore and Csaba Szepesvári&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rltheorybook.github.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Reinforcement Learning: Theory and Algorithms&lt;/a&gt; by Alekh Agarwal, Nan Jiang, Sham Kakade, and Wen Sun&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.di.ens.fr/~fbach/ltfp_book.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Learning Theory from First Principles&lt;/a&gt; by Francis Bach&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tongzhang-ml.org/lt-book.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mathematical Analysis of Machine Learning Algorithms&lt;/a&gt; by Tong Zhang&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cs.huji.ac.il/w~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Understanding Machine Learning: From Theory to Algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>When is Offline Policy Selection Feasible for Reinforcement Learning?</title>
       <link>https://vincentliu3.github.io/publication/liu-2023-when/</link>
       <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>

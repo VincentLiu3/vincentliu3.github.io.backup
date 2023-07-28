@@ -279,12 +279,12 @@
 
   
 
-<meta name="description" content="" />
+<meta name="description" content="A short note on gradient estimation for policy gradient methods." />
 
 
 
-<link rel="alternate" hreflang="en-us" href="https://vincentliu3.github.io/publication/liu-2023-when/" />
-<link rel="canonical" href="https://vincentliu3.github.io/publication/liu-2023-when/" />
+<link rel="alternate" hreflang="en-us" href="https://vincentliu3.github.io/posts/gradient_estimation/" />
+<link rel="canonical" href="https://vincentliu3.github.io/posts/gradient_estimation/" />
 
 
 
@@ -317,18 +317,18 @@
 <meta property="twitter:card" content="summary" />
 <meta property="twitter:image" content="https://vincentliu3.github.io/media/icon_hub270b0482d0f41a4f7574a951b7d3e81_18769_512x512_fill_lanczos_center_3.png" />
 <meta property="og:site_name" content="Vincent Liu" />
-<meta property="og:url" content="https://vincentliu3.github.io/publication/liu-2023-when/" />
-<meta property="og:title" content="When is Offline Policy Selection Feasible for Reinforcement Learning? | Vincent Liu" />
-<meta property="og:description" content="" /><meta property="og:image" content="https://vincentliu3.github.io/media/icon_hub270b0482d0f41a4f7574a951b7d3e81_18769_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:url" content="https://vincentliu3.github.io/posts/gradient_estimation/" />
+<meta property="og:title" content="Gradient Estimation for Policy Gradient Methods | Vincent Liu" />
+<meta property="og:description" content="A short note on gradient estimation for policy gradient methods." /><meta property="og:image" content="https://vincentliu3.github.io/media/icon_hub270b0482d0f41a4f7574a951b7d3e81_18769_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
 
   
     <meta
       property="article:published_time"
-      content="2023-06-24T20:40:04&#43;00:00"
+      content="2023-07-28T00:00:00&#43;00:00"
     />
   
   
-    <meta property="article:modified_time" content="2023-06-24T13:40:05-07:00">
+    <meta property="article:modified_time" content="2023-07-28T00:00:00&#43;00:00">
   
 
 
@@ -336,47 +336,6 @@
 
 
 
-    
-
-
-
-
-
-
-
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://vincentliu3.github.io/publication/liu-2023-when/"
-  },
-  "headline": "When is Offline Policy Selection Feasible for Reinforcement Learning?",
-  
-  "datePublished": "2023-06-24T20:40:04Z",
-  "dateModified": "2023-06-24T13:40:05-07:00",
-  
-  "author": {
-    "@type": "Person",
-    "name": "Vincent Liu"
-  },
-  
-  "publisher": {
-    "@type": "Organization",
-    "name": "Vincent Liu",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://vincentliu3.github.io/media/icon_hub270b0482d0f41a4f7574a951b7d3e81_18769_192x192_fill_lanczos_center_3.png"
-    }
-  },
-  "description": ""
-}
-</script>
-
-  
 
   
 
@@ -394,7 +353,7 @@
 
 
   
-  <title>When is Offline Policy Selection Feasible for Reinforcement Learning? | Vincent Liu</title>
+  <title>Gradient Estimation for Policy Gradient Methods | Vincent Liu</title>
 
   
   
@@ -414,7 +373,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="199f9d07fe816fe31a3ff8865c2e46e6" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="3debaccca6b5deb915008008ea5252a7" >
 
   
   
@@ -542,7 +501,7 @@
           
 
           <li class="nav-item">
-            <a class="nav-link  active" href="/publication"><span>Publications</span></a>
+            <a class="nav-link " href="/publication"><span>Publications</span></a>
           </li>
 
           
@@ -572,7 +531,7 @@
           
 
           <li class="nav-item">
-            <a class="nav-link " href="/posts"><span>Posts</span></a>
+            <a class="nav-link  active" href="/posts"><span>Posts</span></a>
           </li>
 
           
@@ -633,16 +592,7 @@
     
     
 
-    
-
-
-
-
-
-
-
-
-<div class="pub">
+    <article class="article">
 
   
 
@@ -664,7 +614,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>When is Offline Policy Selection Feasible for Reinforcement Learning?</h1>
+  <h1>Gradient Estimation for Policy Gradient Methods</h1>
 
   
 
@@ -676,19 +626,6 @@
 
   
   
-  
-  
-  <div>
-    
-
-  <span class="author-highlighted">
-      Vincent Liu</span>, <span >
-      Prabhat Nagarajan</span>, <span >
-      Andrew Patterson</span>, <span >
-      Martha White</span>
-  </div>
-  
-  
 
   
   <span class="article-date">
@@ -696,7 +633,7 @@
     
       
     
-    January, 2023
+    Jul 28, 2023
   </span>
   
 
@@ -719,45 +656,6 @@
 
 
 
-<div class="btn-links mb-3">
-  
-  
-
-
-
-
-
-
-
-
-  
-    
-  
-
-
-
-<a class="btn btn-outline-primary btn-page-header" href="/papers/OPS.pdf" target="_blank" rel="noopener">
-  PDF
-</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
 
   
 </div>
@@ -766,44 +664,108 @@
 
   <div class="article-container">
 
-    
+    <div class="article-style">
+      <p>This post is about gradient estimation for policy gradient methods.</p>
+<p>Consider the problem of estimating the gradient of an expectation 
 
-    
-    
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-12 col-md-3 pub-row-heading">Type</div>
-          <div class="col-12 col-md-9">
-            <a href="/publication/#1">
-              Conference paper
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-1"></div>
+$\frac{\partial}{\partial\theta}\mathrm{E}_{x\sim p_\theta}[f(x)]$ where 
+
+$f$ is a function, 
+
+$x$ is a random variable and 
+
+$p$ is a parameterized distribution.</p>
+<p>There are two main ways to estimate the gradient (see a summary in [1]). The first one is the likelihood ratio estimator:
+
+
+
+$$
+\frac{\partial}{\partial\theta}\mathrm{E}_{x\sim p_\theta}\left[f(x)\right] = \mathrm{E}_{x\sim p_\theta}\left[f(x)\frac{\partial}{\partial\theta}\log p_\theta(x)\right].
+$$
+</p>
+<p>The second one is the pathwise derivative estimator, or the reparameterization trick. Let 
+
+$x=g_\theta(z)$  be a deterministic and differentiable function of 
+
+$\theta$ and another random variable 
+
+$z$ that we can sample:</p>
+
+
+
+$$
+\frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[f(g_\theta(z))\right] = \mathrm{E}_{z}\left[\frac{\partial}{\partial\theta}f(g_\theta(z))\right].
+$$
+
+<p>Now let&rsquo;s move back to reinforcement learning.</p>
+<p>REINFORCE [2] uses the likelihood ratio estimator. Fix a state 
+
+$s$, the policy 
+
+$\pi_\theta(a|s)$ is the parameterized distribution where 
+
+$a$ is a random variable, 
+
+$Q$ is any function of the state-action pair. We want to estimate 
+
+$\frac{\partial}{\partial\theta}\mathrm{E}_{a\sim \pi_\theta(\cdot|s)}[Q(s.a)]$:
+
+
+
+$$
+\frac{\partial}{\partial\theta}\mathrm{E}_{a\sim \pi_\theta(\cdot|s)}\left[Q(s,a)\right] = \mathrm{E}_{a\sim \pi_\theta(\cdot|s)}\left[Q(s,a)\frac{\partial}{\partial\theta}\log \pi_\theta(a|s)\right].
+$$
+</p>
+<p>DPG [3] and SAC [4] use the reparameterization trick. Let 
+
+$g_\theta(z,s)$ be the output of the policy where 
+
+$z$ is a random variable:
+
+
+
+$$\begin{align} 
+\frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[Q(s,g_\theta(z,s))\right] 
+&= \mathrm{E}_{z}\left[\frac{\partial}{\partial\theta}Q(s,g_\theta(z,s))\right]\\
+&= \mathrm{E}_{z}\left[\frac{\partial}{\partial a}Q(s,a) |_{a=g_\theta(z,s)} \frac{\partial}{\partial \theta}g_\theta(z,s)\right]\\
+\end{align}$$
+
+The second equation follows from the <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank" rel="noopener">chain rule</a>.</p>
+<p>SAC has an additional term, but we can still estimate the gradient.
+
+
+
+$$\begin{align} 
+&\frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[\alpha\log\pi_\theta(g_\theta(z,s)|s) + Q(s,g_\theta(z,s))\right] \\
+% &=\frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[\alpha\log\pi_\theta(g_\theta(z,s)|s)\right] + \frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[ Q(s,g_\theta(z,s))\right] \\
+&=\mathrm{E}_{z}\Big[\frac{\partial}{\partial\theta}\alpha\log\pi_\theta(a|s)|_{a=g_\theta(z,s)} \\
+&\ \ \ \ + \frac{\partial}{\partial a} \alpha\log\pi_\theta(a|s)|_{a=g_\theta(z,s)}\frac{\partial}{\partial \theta}g_\theta(z,s) \\
+&\ \ \ \ +\frac{\partial}{\partial a}Q(s,a) |_{a=g_\theta(z,s)} \frac{\partial}{\partial \theta}g_\theta(z,s)\Big] \\
+\end{align}$$
+</p>
+<p>I provide some Pytorch examples with Gaussian policies below. The Pytorch implementation can be found <a href="https://pytorch.org/docs/stable/distributions.html" target="_blank" rel="noopener">here</a>.</p>
+<p>The likelihood ratio estimator:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">mean</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">policy_network</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">m</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">action</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">log_prob</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">q_value</span> <span class="o">=</span> <span class="n">critic_network</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">log_prob</span> <span class="o">*</span> <span class="n">q_value</span>
+</span></span><span class="line"><span class="cl"><span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span></code></pre></div><p>The reparameterization trick:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">mean</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">policy_network</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">m</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">action</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">rsample</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">log_prob</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">q_value</span> <span class="o">=</span> <span class="n">critic_network</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span> <span class="c1"># critic_network needs to be differentiable</span>
+</span></span><span class="line"><span class="cl"><span class="n">loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">q_value</span>
+</span></span><span class="line"><span class="cl"><span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span></code></pre></div><p>[1] Gradient Estimation Using Stochastic Computation Graphs<br>
+[2] Simple statistical gradient-following algorithms for connectionist reinforcement learning<br>
+[3] Deterministic Policy Gradient Algorithms<br>
+[4] Soft Actor-Critic Algorithms and Applications</p>
+
     </div>
-    <div class="d-md-none space-below"></div>
-    
-
-    
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-12 col-md-3 pub-row-heading">Publication</div>
-          <div class="col-12 col-md-9"><em>Under submission</em></div>
-        </div>
-      </div>
-      <div class="col-md-1"></div>
-    </div>
-    <div class="d-md-none space-below"></div>
-    
-
-    <div class="space-below"></div>
-
-    <div class="article-style"></div>
 
     
 
@@ -828,7 +790,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fvincentliu3.github.io%2Fpublication%2Fliu-2023-when%2F&amp;text=When&#43;is&#43;Offline&#43;Policy&#43;Selection&#43;Feasible&#43;for&#43;Reinforcement&#43;Learning%3F" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fvincentliu3.github.io%2Fposts%2Fgradient_estimation%2F&amp;text=Gradient&#43;Estimation&#43;for&#43;Policy&#43;Gradient&#43;Methods" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -845,7 +807,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvincentliu3.github.io%2Fpublication%2Fliu-2023-when%2F&amp;t=When&#43;is&#43;Offline&#43;Policy&#43;Selection&#43;Feasible&#43;for&#43;Reinforcement&#43;Learning%3F" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fvincentliu3.github.io%2Fposts%2Fgradient_estimation%2F&amp;t=Gradient&#43;Estimation&#43;for&#43;Policy&#43;Gradient&#43;Methods" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -862,7 +824,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fvincentliu3.github.io%2Fpublication%2Fliu-2023-when%2F&amp;title=When&#43;is&#43;Offline&#43;Policy&#43;Selection&#43;Feasible&#43;for&#43;Reinforcement&#43;Learning%3F" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fvincentliu3.github.io%2Fposts%2Fgradient_estimation%2F&amp;title=Gradient&#43;Estimation&#43;for&#43;Policy&#43;Gradient&#43;Methods" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -882,7 +844,6 @@
 
   
   
-    
 
 
 
@@ -977,25 +938,6 @@
   </div>
 
 
-  
-    
-
-
-
-
-  
-    
-
-
-
-
-  
-    
-
-
-
-
-  
 
 
 
@@ -1013,7 +955,7 @@
 
 
   </div>
-</div>
+</article>
   </div>
 
   <div class="page-footer">
