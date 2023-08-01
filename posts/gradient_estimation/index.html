@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Wowchemy. https://www.wowchemy.com -->
-<!-- Last Published: July 28, 2023 --><html lang="en-us" >
+<!-- Last Published: August 1, 2023 --><html lang="en-us" >
 
 
 <head>
@@ -704,7 +704,11 @@ $\theta$ and
 $x$.
 However, when 
 
-$x$ is discrete, the equation still holds since we can interchange the differentiation and the sum.</p>
+$x$ is discrete, the equation still holds since we can interchange the differentiation and the sum.
+The third equation is from the identity
+
+
+$\frac{\partial}{\partial\theta} \log p_\theta(x) = \frac{1}{p_\theta(x)} \frac{\partial}{\partial\theta}p_\theta(x)$.</p>
 <p>The second one is the pathwise derivative estimator, or the reparameterization trick. Let 
 
 $x=g_\theta(z)$ be a deterministic and function function of 
@@ -722,7 +726,17 @@ $$
 Here we interchange the differentiation and the integral. Note that it requires 
 
 $f$ is differentiable.</p>
-<p>Now let&rsquo;s move back to reinforcement learning.</p>
+<p>Now let&rsquo;s move back to reinforcement learning.
+Recall that the policy gradient theorem states that
+
+
+
+$$\begin{align} 
+\frac{\partial}{\partial\theta}J(\theta) 
+&\propto \sum_s \mu(s) \sum_a Q^\pi(s,a) \nabla \pi_\theta(a|s) \\ 
+&= \sum_{s,a} \mu(s)\pi(a|s) Q^\pi(s,a) \nabla \log\pi_\theta(a|s).
+\end{align}$$
+</p>
 <p>REINFORCE [2] uses the likelihood ratio estimator. Fix a state 
 
 $s$, the policy 
@@ -756,7 +770,7 @@ $z$ is a random variable:
 $$\begin{align} 
 \frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[Q(s,g_\theta(z,s))\right] 
 &= \mathrm{E}_{z}\left[\frac{\partial}{\partial\theta}Q(s,g_\theta(z,s))\right]\\
-&= \mathrm{E}_{z}\left[\frac{\partial}{\partial a}Q(s,a) |_{a=g_\theta(z,s)} \frac{\partial}{\partial \theta}g_\theta(z,s)\right]\\
+&= \mathrm{E}_{z}\left[\frac{\partial}{\partial a}Q(s,a) |_{a=g_\theta(z,s)} \frac{\partial}{\partial \theta}g_\theta(z,s)\right].
 \end{align}$$
 
 The second equation follows from the <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank" rel="noopener">chain rule</a>.</p>
@@ -769,7 +783,7 @@ $$\begin{align}
 % &=\frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[\alpha\log\pi_\theta(g_\theta(z,s)|s)\right] + \frac{\partial}{\partial\theta}\mathrm{E}_{z}\left[ Q(s,g_\theta(z,s))\right] \\
 &=\mathrm{E}_{z}\Big[\frac{\partial}{\partial\theta}\alpha\log\pi_\theta(a|s)|_{a=g_\theta(z,s)} \\
 &\ \ \ \ + \frac{\partial}{\partial a} \alpha\log\pi_\theta(a|s)|_{a=g_\theta(z,s)}\frac{\partial}{\partial \theta}g_\theta(z,s) \\
-&\ \ \ \ +\frac{\partial}{\partial a}Q(s,a) |_{a=g_\theta(z,s)} \frac{\partial}{\partial \theta}g_\theta(z,s)\Big] \\
+&\ \ \ \ +\frac{\partial}{\partial a}Q(s,a) |_{a=g_\theta(z,s)} \frac{\partial}{\partial \theta}g_\theta(z,s)\Big].
 \end{align}$$
 </p>
 <p>I provide some Pytorch examples with Gaussian policies below. The Pytorch implementation can be found <a href="https://pytorch.org/docs/stable/distributions.html" target="_blank" rel="noopener">here</a>.</p>
